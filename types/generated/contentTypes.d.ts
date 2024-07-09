@@ -362,6 +362,37 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
+export interface ApiEnvironmentEnvironment extends Schema.CollectionType {
+  collectionName: 'environments';
+  info: {
+    singularName: 'environment';
+    pluralName: 'environments';
+    displayName: 'Environment';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    thumbnail: Attribute.Media<'images' | 'files' | 'videos' | 'audios', true>;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::environment.environment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::environment.environment',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiSchoolSchool extends Schema.CollectionType {
   collectionName: 'schools';
   info: {
@@ -832,6 +863,7 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
+      'api::environment.environment': ApiEnvironmentEnvironment;
       'api::school.school': ApiSchoolSchool;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
