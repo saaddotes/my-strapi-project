@@ -1,0 +1,30 @@
+{
+  "kind": "collectionType",
+  "collectionName": "schools",
+  "info": {
+    "singularName": "school",
+    "pluralName": "schools",
+    "displayName": "school"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "student": {
+      "type": "string"
+    },
+    "fathername": {
+      "type": "string"
+    },
+    "emailaddress": {
+      "type": "email"
+    },
+    "phone": {
+      "type": "biginteger"
+    },
+    "dateOfAddmission": {
+      "type": "date"
+    }
+  }
+}
